@@ -18,6 +18,6 @@ public interface VideoMapper extends BaseMapper<Video> {
      */
     List<Video> selectPopularList();
 
-    List<DataAnalysis> selectDataAnalysis();
+    List<DataAnalysis> selectDataAnalysis(Video video);
 
 }

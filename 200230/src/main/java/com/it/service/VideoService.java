@@ -99,5 +99,5 @@ public interface VideoService {
 
     List<RemindMessageVO> selectUnreadList();
 
-    List<DataAnalysis> selectDataAnalysis();
+    List<DataAnalysis> selectDataAnalysis(String ptId);
 }

@@ -105,7 +105,7 @@ public class CourseController {
 
 
     /**
-     * 删除课程
+     * 删除目录
      *
      * @param id
      * @return
@@ -233,5 +233,17 @@ public class CourseController {
     public List<Book> getBookList(String ptId) {
         List<Book> chdClassifieList = courseService.selectBookList(ptId);
         return chdClassifieList;
+    }
+
+    /**
+     * 得到列表
+     *
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/getCourseList.do")
+    public List<Course> getCourseList() {
+        List<Course> courseList = courseService.selectList();
+        return courseList;
     }
 }

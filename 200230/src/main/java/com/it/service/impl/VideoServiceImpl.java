@@ -20,6 +20,7 @@ import com.it.service.VideoService;
 import com.it.util.DateUtil;
 import com.it.util.ItdragonUtils;
 import com.mysql.jdbc.StringUtils;
+import org.elasticsearch.common.recycler.Recycler;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -303,8 +304,10 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public List<DataAnalysis> selectDataAnalysis() {
-        List<DataAnalysis> dataAnalyses=videoMapper.selectDataAnalysis();
+    public List<DataAnalysis> selectDataAnalysis(String ptId) {
+        Video video=new Video();
+        video.setPtId(ptId);
+        List<DataAnalysis> dataAnalyses=videoMapper.selectDataAnalysis(video);
         if (dataAnalyses.isEmpty()){
             return null;
         }

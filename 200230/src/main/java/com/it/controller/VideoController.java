@@ -183,9 +183,9 @@ public class VideoController {
 
     @ResponseBody
     @GetMapping("/selectDataAnalysis.do")
-    public ResultResponse selectDataAnalysis() {
+    public ResultResponse selectDataAnalysis(String ptId) {
         try {
-            List<DataAnalysis> list=videoService.selectDataAnalysis();
+            List<DataAnalysis> list=videoService.selectDataAnalysis(ptId);
             return Result.resuleSuccess(list);
         }catch (Exception e){
             return Result.resuleError("获取分析数据失败");

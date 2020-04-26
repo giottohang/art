@@ -7,8 +7,12 @@
          where a.id=b.videoId ORDER BY likeNumber DESC
 	</select>
 
-    <select id="selectDataAnalysis" resultType="com.it.entity.vo.DataAnalysis">
+    <select id="selectDataAnalysis"  resultType="com.it.entity.vo.DataAnalysis">
 		SELECT  DATE_FORMAT(a.time,'%Y-%m-%d') as date,count(id) as num from gm_video a
+		where 1=1
+		<if test="ptId !=null and ptId !='' ">
+            and ptId=#{ptId}
+        </if>
          group by DATE_FORMAT(a.time,'%Y-%m-%d')
 	</select>
 
